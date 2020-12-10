@@ -16,7 +16,6 @@ module.exports = {
       '@resources': path.resolve(__dirname, './src/resources/'),
       '@utils': path.resolve(__dirname, './src/utils/'),
       '@shared': path.resolve(__dirname, './src/shared/'),
-      '@emailTemplates': path.resolve(__dirname, './src/emailTemplates/'),
     },
   },
   node: {

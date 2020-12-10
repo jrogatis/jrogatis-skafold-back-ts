@@ -1,35 +1,34 @@
-import { login, passcode, passwordRecovery, refresh } from "./auth.controller";
-import { TRouter } from "@utils/models";
-import { loginValidators, passcodeValidator, passwordRecoveryValidators, refreshValidators } from "./auth.validators";
+import { login, passwordRecovery, refresh } from './auth.controller';
+import { TRouter } from '@utils/models';
+import {
+  loginValidators,
+  passcodeValidator,
+  passwordRecoveryValidators,
+  refreshValidators,
+} from './auth.validators';
 
 const routes: TRouter = {
-  resource: "auth",
+  resource: 'auth',
   routes: [
     {
-      path: "login",
-      method: "post",
+      path: 'login',
+      method: 'post',
       handler: login,
-      middlewares: [loginValidators]
+      middlewares: [loginValidators],
     },
     {
-      path: "refresh",
-      method: "post",
+      path: 'refresh',
+      method: 'post',
       handler: refresh,
-      middlewares: [refreshValidators]
+      middlewares: [refreshValidators],
     },
     {
-      path: "password-recovery",
-      method: "post",
+      path: 'password-recovery',
+      method: 'post',
       handler: passwordRecovery,
-      middlewares: [passwordRecoveryValidators]
+      middlewares: [passwordRecoveryValidators],
     },
-    {
-      path: "check-passcode/:passcode",
-      method: "post",
-      handler: passcode,
-      middlewares: [passcodeValidator]
-    }
-  ]
+  ],
 };
 
 export default routes;

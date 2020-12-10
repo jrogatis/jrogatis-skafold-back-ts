@@ -7,9 +7,8 @@ import {
   JwtTokenTypeEnum,
 } from '@shared/services/jwt';
 import { Unauthorized } from '@utils/responses';
-import { Leads } from '@resources/lead/lead.model';
+
 import { Users } from '@resources/user/user.model';
-import { sendEmail } from '@shared/services/mailer';
 
 const generateRedisKey = (userId, refreshToken) =>
   `${process.env.JWT_REDIS_REFRESH_TOKEN_PREFIX}${userId}_${refreshToken}`;
@@ -42,26 +41,6 @@ export const refresh: THandler = async (req, res) => {
     return res.json({ token: newToken, refreshToken: newRefreshToken });
   } catch (error) {
     return Unauthorized(res);
-  }
-};
-
-export const passcode: THandler = async (req, res, next) => {
-  try {
-    const foundedLead = await Leads.findOne({
-      passcode: req.params.passcode,
-    }).exec();
-    if (foundedLead) {
-      foundedLead.passcodeCounter.push(new Date().toISOString());
-      await foundedLead.save();
-      return res.json({
-        nickname: foundedLead.nickname,
-        fullName: foundedLead.fullName,
-      });
-    }
-    return Unauthorized(res);
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send();
   }
 };
 
