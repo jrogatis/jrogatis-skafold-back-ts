@@ -1,0 +1,33 @@
+{
+	"extends": [
+		"prettier",
+		"eslint:recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:import/typescript"
+	],
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaVersion": 2017,
+		"parser": "@typescript-eslint/parser"
+	},
+	"settings": {
+		"import/resolver": {
+			"alias": {
+				"map": [
+					["@config", "./src/config"],
+					["@middleware", "./src/middleware"],
+					["@services", "./src/services"],
+					["@resources", "./src/resources"],
+					["@utils", "./src/utils"],
+					["@shared", "./src/shared"]
+				]
+			},
+			"extensions": [".js", ".less", ".json", ".vue"]
+		}
+	},
+	"env": {
+		"es6": true,
+		"node": true
+	}
+}

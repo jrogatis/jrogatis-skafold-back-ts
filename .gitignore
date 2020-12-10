@@ -1,0 +1,9 @@
+node_modules
+MongoDB
+coverage
+.DS_Store
+node_modules
+database
+dist/
+.env.*
+.env

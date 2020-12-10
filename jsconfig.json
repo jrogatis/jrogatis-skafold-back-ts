@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@middleware/*": ["middleware/*"],
+      "@services/*": ["services/*"],
+      "@resources/*": ["resources/*"],
+      "@utils/*": ["utils/*"],
+      "@shared/*": ["shared/*"],
+      "@emailTemplates/*": ["emailTemplates/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "public", "database"]
+}

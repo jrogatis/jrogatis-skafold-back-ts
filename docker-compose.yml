@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  jpl-back-mongo:
+    image: mongo:4.2.0-bionic
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./database:/data/db
+    networks:
+      - lpj-back-network
+networks:
+  lpj-back-network:
+    driver: bridge

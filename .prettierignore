@@ -1,0 +1,6 @@
+coverage
+.gitignore
+.eslintignore
+.prettierignore
+.DS_Store
+.env
